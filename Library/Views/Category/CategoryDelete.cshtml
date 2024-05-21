@@ -1,0 +1,27 @@
+﻿@using LibrarySystem.Models
+@model CategoryModel
+
+
+<div class="pagetitle">
+    <h1>Category Deleting</h1>
+
+</div><!-- End Page Title -->
+
+<form method="post">
+
+
+    <div class="form-group">
+        <label asp-for="CategoryName">Category Name</label>
+        <input asp-for="CategoryName" type="text" class="form-control mt-1"  disabled>
+
+    </div>
+    <div class="form-group mt-1">
+        <label asp-for="Description">Description</label> 
+        <input asp-for="Description" type="text" class="form-control mt-1" disabled>
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+</form>

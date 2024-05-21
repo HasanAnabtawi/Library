@@ -1,0 +1,54 @@
+﻿
+
+@model IEnumerable<AppUser>;
+
+
+<div class="pagetitle">
+    <h1>User List</h1>
+
+</div><!-- End Page Title -->
+
+
+
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+
+                <table class="table table-hover table-striped table-bordered ">
+                    <thead>
+                        <tr style="background-color: green; color: white">
+                            
+                            <th class="col-auto" scope="col">User Id</th>
+                            <th class="col-auto" scope="col">Name</th>
+                            <th class="col-auto" scope="col">Email</th>
+                            <th class="col-auto" scope="col">Phone Number</th>
+                            <th class="col-auto" scope="col">Address</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+
+                                
+                                <td>@item.PhoneNumber</td>
+                                <td>@item.Address</td>
+                                
+                               
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

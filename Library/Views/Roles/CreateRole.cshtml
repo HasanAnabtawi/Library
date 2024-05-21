@@ -1,0 +1,31 @@
+﻿@using Library.ViewModels
+@using LibrarySystem.Models
+@model CreateRoleVM
+
+
+<div class="pagetitle">
+    <h1>Role Adding</h1>
+
+</div>
+
+<form method="post" enctype="multipart/form-data">
+
+
+    <div class="form-group ">
+        <label asp-for="RoleName">Role Name</label>
+        <input asp-for="RoleName" type="text" class="form-control mt-1" placeholder="Enter Role Name">
+
+    </div>
+   
+   
+
+    
+
+   
+
+
+  
+
+
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
+</form>

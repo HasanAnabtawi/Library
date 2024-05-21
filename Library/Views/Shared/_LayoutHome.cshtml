@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Library-Home</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="lib" rel="icon">
+    <link href="~/lib/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/lib/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/lib/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/lib/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/lib/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="toggle-sidebar">
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class=" align-items-center justify-content-between">
+            <a asp-controller="Home" asp-action="Index" class="logo align-items-center">
+                <img src="~/lib/img/logo1.png" alt="">
+                <span style=" margin-right:30px;">Library</span>
+            </a>
+            
+        </div><!-- End Logo -->
+
+        <div class=" nav-item align-items-center justify-content-between">
+            <a asp-controller="Home" asp-action="Index" class=" nav-link d-flex align-items-center">
+
+                <span class="  d-none d-lg-block ">Home</span>
+            </a>
+
+          
+
+
+           
+
+
+        </div><!-- End Home Anchor -->
+        @if (User.IsInRole("Admin"))
+        {
+
+            
+
+       
+            <div class=" nav-item align-items-center justify-content-between">
+                <a class="nav-link d-flex align-items-center ms-4" asp-controller="Book" asp-action="Index">Admin Dashboard</a>
+            </div>
+
+
+
+
+
+            
+        }
+
+
+
+     
+       
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+
+               
+
+
+
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btn-secondary d-none d-lg-inline-block me-lg-2 mb-3 mb-md-0" asp-controller="Account" asp-action="Login">Login</a>
+                    <a class="btn btn-secondary  d-none d-lg-inline-block me-lg-3 mb-3 mb-md-0" asp-controller="Account" asp-action="Register">Register</a>
+                }
+
+                else
+                {
+                    <a class="d-none d-lg-inline-block me-lg-3 mb-3 mb-md-0" href="#">Welcome @User.Identity.Name !</a>
+
+                    <a class="btn btn-dark  d-none d-lg-inline-block me-lg-3 mb-3 mb-md-0" asp-controller="Account" asp-action="Logout">Logout</a>
+                }
+
+
+
+
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+   
+    
+
+
+    <main id="main" class="mx-5  ">
+
+
+
+        <section class="section ">
+            <div class="row">
+
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+       
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Vendor JS Files -->
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/chart.js/chart.umd.js"></script>
+    <script src="~/lib/echarts/echarts.min.js"></script>
+    <script src="~/lib/quill/quill.min.js"></script>
+    <script src="~/lib/simple-datatables/simple-datatables.js"></script>
+    <script src="~/lib/tinymce/tinymce.min.js"></script>
+    <script src="~/lib/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/js/main.js"></script>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

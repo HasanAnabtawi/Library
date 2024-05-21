@@ -1,0 +1,73 @@
+﻿@using LibrarySystem.Models
+@model BookModel;
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+<div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          
+            <img class="w-100 rounded-4 fit" style=" margin: auto; height:500px;"  src="@Model.ImageUrl">
+          
+        </div>
+       
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6">
+        <div class="">
+          <h4 class="title text-dark">
+                <span>Book Title:</span> @Model.Title
+          </h4>
+          
+            @if (@Model.Status == "Available")
+            {
+                <span class="text-success ms-2">@Model.Status</span>
+            }
+            @if (@Model.Status == "Not Available")
+            {
+            <span class="text-danger ms-2">@Model.Status</span>
+            }
+           
+          </div>
+
+         
+
+    
+
+       
+
+
+          <div class="row">
+            <dt class="col-4">Category:</dt>
+            <dd class="col-8">@Model.Category.CategoryName</dd>
+
+            <dt class="col-4">ISBN:</dt>
+            <dd class="col-8">@Model.ISBN</dd>
+
+            <dt class="col-4">Publication Date:</dt>
+            <dd class="col-8">@Model.PublicationDate</dd>
+
+            <dt class="col-4">Author:</dt>
+            <dd class="col-8">@Model.Author</dd>
+
+           
+
+
+
+           
+          </div>
+
+          <hr>
+
+
+        
+         
+          
+         
+        
+      </main>
+    </div>

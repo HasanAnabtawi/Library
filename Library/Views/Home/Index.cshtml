@@ -1,0 +1,45 @@
+﻿@using LibrarySystem.Models
+@model IEnumerable<BookModel>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<div class="row pb-3">
+    
+   
+  
+
+    @foreach(var x in Model)
+    {
+        <div class="card col-3 p-3 " >
+            <img class="bd-placeholder-img card-img-top " height="280px" src="@x.ImageUrl" />
+            <div class="card-body">
+                <h5 class="card-title">@x.Title</h5>
+
+                <h5 class="card-subtitle">Category: @x.Category.CategoryName</h5>
+                
+
+
+                @if (x.Status == "Available")
+                {
+                    <p class="text-success"><span class="text-dark">Status:</span> @x.Status </p>
+                }
+                else
+                {
+                    if (x.Status == "Not Available")
+                    {
+                        <p class="text-danger"><span class="text-dark">Status:</span> @x.Status</p>
+                        
+                    }
+                }
+
+
+
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@x.Id" class="btn btn-primary w-100">Details</a>
+            </div>
+        </div>
+    } 
+
+</div>

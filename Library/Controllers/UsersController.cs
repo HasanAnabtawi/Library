@@ -1,9 +1,12 @@
 ﻿using Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class UsersController:Controller
     {
 
@@ -16,7 +19,8 @@ namespace Library.Controllers
 
         }
 
-
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var data=_userManager.Users;

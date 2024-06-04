@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LibrarySystem.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LibrarySystem.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private ApplicationDbContext _db;
@@ -20,7 +23,7 @@ namespace LibrarySystem.Controllers
             var data = _db.Categories.ToList();
             return View(data);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CategoryAdd()
 
@@ -28,7 +31,10 @@ namespace LibrarySystem.Controllers
         {
 
             return View();
+
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult CategoryAdd(CategoryModel obj)
 
@@ -39,7 +45,7 @@ namespace LibrarySystem.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CategoryEdit(int id)
 
@@ -49,7 +55,7 @@ namespace LibrarySystem.Controllers
             var data=_db.Categories.FirstOrDefault(c => c.Id == id);
             return View(data);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult CategoryEdit(CategoryModel obj)
 
@@ -70,6 +76,7 @@ namespace LibrarySystem.Controllers
             return View(data);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public IActionResult CategoryDelete(CategoryModel obj)
 

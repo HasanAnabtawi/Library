@@ -1,11 +1,14 @@
 ﻿using Library.Models;
 using Library.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Controllers
 {
+
+    [Authorize(Roles="Admin")]
     public class RolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -18,7 +21,7 @@ namespace Library.Controllers
             
         }
 
-        
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var data=_roleManager.Roles;
@@ -26,12 +29,14 @@ namespace Library.Controllers
             return View(data);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CreateRole()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateRole(CreateRoleVM roleModel)
         {

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LibrarySystem.Controllers
 {
-    [Authorize(Roles= "Admin,HR")]
+    [Authorize(Roles= "Admin")]
     public class BookController : Controller
 
     {
@@ -45,7 +45,7 @@ namespace LibrarySystem.Controllers
 
             return View(data);
         }
-
+        [Authorize(Roles = "Admin")]
 
         [HttpGet]
         public IActionResult BookAdd()
@@ -73,7 +73,7 @@ namespace LibrarySystem.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult BookAdd(BookModel obj, IFormFile? file)
         {
@@ -101,7 +101,7 @@ namespace LibrarySystem.Controllers
 
    
 
-
+    [Authorize(Roles ="Admin")]
 
     [HttpGet]
     public IActionResult BookEdit(int id)
@@ -133,7 +133,7 @@ namespace LibrarySystem.Controllers
             return View(data);
     }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         
         public IActionResult BookEdit(BookModel obj,IFormFile? file)
@@ -171,7 +171,7 @@ namespace LibrarySystem.Controllers
             return RedirectToAction("Index");   
                 }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult BookDelete(int? id)
         {
@@ -184,7 +184,7 @@ namespace LibrarySystem.Controllers
             return View(data);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult BookDelete(BookModel obj)
         {

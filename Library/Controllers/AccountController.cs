@@ -66,7 +66,7 @@ namespace Library.Controllers
                 AppUser user = new()
                 {
                     Name = register.Name,
-                    UserName = register.Email,
+                    UserName = register.Name,
                     Email = register.Email,
                     Address = register.Address,
                 };

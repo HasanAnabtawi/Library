@@ -25,27 +25,68 @@ namespace LibrarySystem.Data
         {
             base.OnModelCreating(builder);
             this.SeedRoles(builder);
+            this.SeedAdmin(builder);
            
             
         }
 
        
 
-        //private void SeedAdmin(ModelBuilder builder)
-        //{
 
-        //    builder.Entity<AppUser>().HasData(
-        //        new { id= Guid.NewGuid().ToString() ,Name="Hasan",Address="Amman",UserName="Admin",NormalizedUserName="ADMIN",Email="aaa@aa.com",NormalizedEmail="AAA@AA.COM",EmailConfirmed=0,}
-                
-        //        }
-        //}
+
+
+
+       
         private void SeedRoles(ModelBuilder builder)
         {
             builder.Entity<IdentityRole>().HasData(
-                new IdentityRole() { Id = "fab4fac1-c546-41de-aebc-a14da6895711", Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
-                new IdentityRole() { Id = "c7b013f0-5201-4317-abd8-c211f91b7330", Name = "HR", ConcurrencyStamp = "2", NormalizedName = "Human Resource" }
+                new IdentityRole() { Id = "fab4fac1-c546-41de-aebc-a14da6895711", Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" }
+               
                 );
         }
+
+
+
+        private void SeedAdmin(ModelBuilder builder)
+        {
+            var AdminUser = new AppUser
+            {
+                Id = "71213656-375e-4f26-8cb9-fa34740e6691",
+                UserName = "Hasan",
+                NormalizedUserName = "HASAN",
+                Email = "Hasan@hh.com",
+                NormalizedEmail = "HASAN@HH.COM",
+                PasswordHash = "AQAAAAIAAYagAAAAECYGjH+g2eH+sZATW3ca4lY7dfkFVVP0+wWciwheIPkvr3+l4hNXanxe/RQI4NuLKA==",
+                SecurityStamp = "XN4MNXY2RIUVN6Q6U4IFRE3QMSTQO2J6",
+                ConcurrencyStamp = "1394d109-071d-4d0c-a633-194b9a51afc6",
+                TwoFactorEnabled = false,
+                EmailConfirmed = false,
+                LockoutEnabled = true,
+                Name = "Hasan",
+                Address = "Amman"
+
+
+
+
+            };
+
+
+            builder.Entity<AppUser>().HasData( AdminUser );
+
+
+            var AdminRole = new IdentityUserRole<string>
+            {
+                RoleId = "fab4fac1-c546-41de-aebc-a14da6895711",
+                UserId = AdminUser.Id,
+                
+
+            };
+
+            builder.Entity<IdentityUserRole<string>>().HasData( AdminRole );
+
+
+        }
+
     }
 }
 

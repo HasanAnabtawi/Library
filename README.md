@@ -5,7 +5,7 @@
 
 I built this project using Asp.Net Core MVC Web Framework, and used of Bootstrap Library in the views to edit the style of the HTML Elements with using of free web site template and editing on it to match the functionality and requirements of the project.
 
-You can login to admin using the following username and password:
+You can login to admin using the following username and password:    
 __username__: Hasan    
 __password__ : HHHaaa123
 

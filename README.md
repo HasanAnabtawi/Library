@@ -9,7 +9,7 @@ You can login to admin using the following username and password:
 __username__: Hasan    
 __password__ : HHHaaa123
 
-__Tanks for reading,__   
+__Thanks for reading,__   
   __Hasan Anabtawi__
 
 
